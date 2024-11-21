@@ -1,0 +1,20 @@
+Implemented Cases: 
+1. CRUD operations of coupons. 
+2. Fetch all existing coupons. 
+3. Fetch all applicable coupons with respective discounts.  
+4. Apply specific coupons on cart. 
+
+Unimplemented Cases: 
+1. Expiry of coupons: This could have been implemented by using caffeince cache with expiry listener. Skipping it for this POC. 
+2. JUnit: Not well versed with it. 
+3. Fine error handling: Didn't write minute cases of parsing failure or input sanitization. 
+
+Limitations: 
+1. Duplicate coupons can be saved. 
+2. Atomic Integer mechanism for coupon ID, so once one ID is deleted makes it essentially useless. 
+3. Input sanitization skipped while parsing json. 
+
+Assumptions:
+1. In BxGy coupon, if cart doesn't contain enough of free products, gave discount on the existing cart items rather than asking user to add more of free items.  
+2. If user attempts to apply a coupon which is not eligible, i am returning the updated cart with 0 discount and final price as the total price of the cart. (No user prompt or error about ineligible coupon).
+3. Used in-memory data store for ease of handling of coupons. 
